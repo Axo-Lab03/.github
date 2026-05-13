@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="./assets/logo.svg" alt="Axo-Lab" width="120" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Axo-Lab03/.github/main/profile/assets/logo-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Axo-Lab03/.github/main/profile/assets/logo-light.svg">
+  <img alt="Axo-Lab" src="https://raw.githubusercontent.com/Axo-Lab03/.github/main/profile/assets/logo-light.svg" width="120">
+</picture>
 
 # Axo-Lab
 

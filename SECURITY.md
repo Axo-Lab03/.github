@@ -20,7 +20,7 @@ Ce canal permet une discussion privée entre vous et les mainteneurs, sans expos
 
 Si le repo n'a pas activé Private Vulnerability Reporting, ou si la vulnérabilité concerne plusieurs repos / l'infrastructure :
 
-📧 **contact@axo-lab.fr** (ou à défaut **contact@axo-lab.fr**)
+📧 **contact@axo-lab.fr**
 
 Merci d'inclure dans votre signalement :
 
@@ -117,7 +117,6 @@ Toutes les communications de sécurité sont traitées de manière confidentiell
 ## Coordonnées
 
 📧 **contact@axo-lab.fr**
-📧 **contact@axo-lab.fr** (canal général)
 🌐 [axo-lab.fr](https://axo-lab.fr)
 
 **AXO-LAB SASU** · SIRET 103 310 017 00019

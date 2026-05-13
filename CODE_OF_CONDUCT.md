@@ -38,7 +38,7 @@ Ce Code de conduite s'applique dans tous les espaces communautaires, et s'appliq
 
 Les cas de comportement abusif, harcelant ou autrement inacceptable peuvent être signalés aux responsables de la communauté chargés de l'application à l'adresse suivante :
 
-📧 **contact@axo-lab.fr** (ou à défaut **contact@axo-lab.fr**)
+📧 **contact@axo-lab.fr**
 
 Toutes les plaintes seront examinées et étudiées rapidement et équitablement.
 
