@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Builds (au cas où des outils de génération seraient ajoutés)
+node_modules/
+dist/
+build/

@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Signaler une vulnérabilité de sécurité
+    url: https://github.com/Axo-Lab03/.github/blob/main/SECURITY.md
+    about: Ne pas ouvrir d'issue publique. Suivre la procédure privée.
+  - name: ❓ Question d'usage ou de support
+    url: mailto:contact@axo-lab.fr
+    about: Pour les questions générales d'usage de nos outils ou intégrations.
+  - name: 💼 Demande commerciale ou devis
+    url: https://cal.com/clement-pandreau
+    about: Prendre rendez-vous directement pour parler d'un projet.
+  - name: 🌐 Site officiel Axo-Lab
+    url: https://axo-lab.fr
+    about: En savoir plus sur le studio, nos références et nos expertises.

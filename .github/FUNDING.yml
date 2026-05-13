@@ -1,0 +1,16 @@
+# Axo-Lab est une SASU commerciale, pas un projet open source dépendant de dons.
+# Les boutons "Sponsor" GitHub ne sont donc pas activés au niveau organisationnel.
+#
+# Si vous souhaitez soutenir nos travaux open source :
+#   - Utilisez et partagez nos outils publics
+#   - Ouvrez des issues constructives et contribuez via PR
+#   - Mentionnez-nous quand vous réutilisez nos templates
+#
+# Pour une collaboration commerciale : contact@axo-lab.fr
+#
+# Si certains repos spécifiques (ex : un outil open source maintenu activement)
+# justifient un sponsoring ponctuel, créer un FUNDING.yml dédié à la racine
+# du repo concerné avec la configuration ci-dessous :
+#
+# github: [Axo-Lab03]
+# custom: ["https://axo-lab.fr"]

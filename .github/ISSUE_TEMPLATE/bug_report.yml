@@ -1,0 +1,120 @@
+name: 🐛 Signaler un bug
+description: Rapporter un comportement inattendu ou un défaut.
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler ce bug.
+
+        **Avant de soumettre** :
+        - 🔍 Vérifiez qu'aucune [issue similaire](../search?type=issues) n'existe déjà
+        - 🔒 Pour une vulnérabilité de sécurité, **ne pas** ouvrir d'issue publique : suivez [SECURITY.md](https://github.com/Axo-Lab03/.github/blob/main/SECURITY.md)
+
+  - type: checkboxes
+    id: prerequis
+    attributes:
+      label: Pré-requis
+      description: Cochez pour confirmer
+      options:
+        - label: J'ai vérifié qu'aucune issue similaire n'existe déjà
+          required: true
+        - label: Ce bug n'est pas une vulnérabilité de sécurité
+          required: true
+        - label: J'utilise la dernière version disponible
+          required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du bug
+      description: Décrivez clairement le comportement observé.
+      placeholder: Lorsque je clique sur..., je m'attends à... mais ce qui se passe est...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Étapes de reproduction
+      description: Étapes précises pour reproduire le bug.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Comportement attendu
+      description: Que devrait-il se passer ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: observe
+    attributes:
+      label: Comportement observé
+      description: Qu'est-ce qui se passe à la place ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: captures
+    attributes:
+      label: Captures d'écran ou logs
+      description: Glissez-déposez les fichiers ici. Les logs sont précieux, n'hésitez pas.
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version du projet
+      description: Tag, branche ou hash du commit
+      placeholder: v1.2.3 / main@a1b2c3d
+    validations:
+      required: false
+
+  - type: dropdown
+    id: navigateur
+    attributes:
+      label: Navigateur (si applicable)
+      multiple: true
+      options:
+        - Chrome / Chromium
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari (iOS)
+        - Mobile Chrome (Android)
+        - Non applicable
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Système d'exploitation
+      placeholder: macOS 15.2 / Windows 11 / Ubuntu 24.04 / iOS 18
+    validations:
+      required: false
+
+  - type: input
+    id: node
+    attributes:
+      label: Version Node.js (si applicable)
+      placeholder: 22.11.0
+    validations:
+      required: false
+
+  - type: textarea
+    id: contexte
+    attributes:
+      label: Contexte additionnel
+      description: Toute autre information utile (fréquence, environnement, contournement trouvé).
+    validations:
+      required: false

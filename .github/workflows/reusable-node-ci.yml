@@ -1,0 +1,152 @@
+# Workflow CI réutilisable pour projets Node.js / TypeScript
+#
+# À appeler depuis un workflow d'un autre repo de l'organisation :
+#
+#   jobs:
+#     ci:
+#       uses: Axo-Lab03/.github/.github/workflows/reusable-node-ci.yml@main
+#       with:
+#         node-version: '22'
+#         run-e2e: true
+#       secrets: inherit
+#
+# Documentation : https://docs.github.com/actions/sharing-automations/reusing-workflows
+
+name: Reusable Node CI
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: "Version Node.js à utiliser (string, ex: '22')"
+        required: false
+        type: string
+        default: "22"
+      package-manager:
+        description: "Gestionnaire de paquets : npm, pnpm ou yarn"
+        required: false
+        type: string
+        default: "npm"
+      working-directory:
+        description: "Répertoire de travail relatif à la racine du repo"
+        required: false
+        type: string
+        default: "."
+      run-lint:
+        description: "Exécuter le linter"
+        required: false
+        type: boolean
+        default: true
+      run-typecheck:
+        description: "Exécuter la vérification de types TypeScript"
+        required: false
+        type: boolean
+        default: true
+      run-unit-tests:
+        description: "Exécuter les tests unitaires"
+        required: false
+        type: boolean
+        default: true
+      run-e2e:
+        description: "Exécuter les tests E2E (Playwright)"
+        required: false
+        type: boolean
+        default: false
+      run-build:
+        description: "Exécuter le build de production"
+        required: false
+        type: boolean
+        default: true
+      lint-command:
+        description: "Commande de lint personnalisée"
+        required: false
+        type: string
+        default: "npm run lint"
+      typecheck-command:
+        description: "Commande de vérification de types personnalisée"
+        required: false
+        type: string
+        default: "npx tsc --noEmit"
+      test-command:
+        description: "Commande de tests unitaires personnalisée"
+        required: false
+        type: string
+        default: "npm run test"
+      e2e-command:
+        description: "Commande de tests E2E personnalisée"
+        required: false
+        type: string
+        default: "npx playwright test"
+      build-command:
+        description: "Commande de build personnalisée"
+        required: false
+        type: string
+        default: "npm run build"
+
+jobs:
+  ci:
+    name: Lint · Types · Tests · Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js ${{ inputs.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: ${{ inputs.package-manager }}
+          cache-dependency-path: ${{ inputs.working-directory }}/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          if [ "${{ inputs.package-manager }}" = "npm" ]; then
+            npm ci
+          elif [ "${{ inputs.package-manager }}" = "pnpm" ]; then
+            corepack enable
+            pnpm install --frozen-lockfile
+          elif [ "${{ inputs.package-manager }}" = "yarn" ]; then
+            corepack enable
+            yarn install --frozen-lockfile
+          else
+            echo "Gestionnaire de paquets non supporté : ${{ inputs.package-manager }}"
+            exit 1
+          fi
+
+      - name: Lint
+        if: ${{ inputs.run-lint }}
+        run: ${{ inputs.lint-command }}
+
+      - name: TypeScript type check
+        if: ${{ inputs.run-typecheck }}
+        run: ${{ inputs.typecheck-command }}
+
+      - name: Tests unitaires
+        if: ${{ inputs.run-unit-tests }}
+        run: ${{ inputs.test-command }}
+
+      - name: Install Playwright browsers
+        if: ${{ inputs.run-e2e }}
+        run: npx playwright install --with-deps chromium
+
+      - name: Tests E2E
+        if: ${{ inputs.run-e2e }}
+        run: ${{ inputs.e2e-command }}
+
+      - name: Upload Playwright report
+        if: ${{ inputs.run-e2e && (success() || failure()) }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: ${{ inputs.working-directory }}/playwright-report/
+          retention-days: 14
+
+      - name: Build de production
+        if: ${{ inputs.run-build }}
+        run: ${{ inputs.build-command }}

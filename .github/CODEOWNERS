@@ -1,0 +1,31 @@
+# CODEOWNERS pour le repo `Axo-Lab03/.github`
+#
+# Toute Pull Request modifiant un fichier de ce repo nécessite l'approbation
+# du propriétaire indiqué. Cette protection est complémentaire des règles
+# de protection de branche définies au niveau organisationnel.
+#
+# Documentation : https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Format : <pattern> <owner1> <owner2> ...
+# Le dernier match l'emporte.
+
+# Par défaut : owner principal de l'organisation
+*       @cpandreau
+
+# Vitrine publique : visibilité maximale, toujours revue par le owner
+/profile/                   @cpandreau
+
+# Fichiers communautaires : revue obligatoire avant changement
+/CODE_OF_CONDUCT.md         @cpandreau
+/CONTRIBUTING.md            @cpandreau
+/SECURITY.md                @cpandreau
+/SUPPORT.md                 @cpandreau
+/PULL_REQUEST_TEMPLATE.md   @cpandreau
+/ISSUE_TEMPLATE/            @cpandreau
+
+# Workflows et templates Dependabot : impact transversal sur tous les repos
+/workflows/                 @cpandreau
+/dependabot.yml             @cpandreau
+
+# Configuration de la communauté
+/FUNDING.yml                @cpandreau

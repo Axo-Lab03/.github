@@ -1,0 +1,102 @@
+# Configuration Dependabot standard Axo-Lab
+#
+# Ce fichier est un TEMPLATE à copier dans le `.github/` de chaque repo concerné.
+# GitHub ne lit dependabot.yml que depuis le repo lui-même, pas depuis le repo `.github` central.
+#
+# Documentation : https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+
+updates:
+  # ─── npm / Node.js ─────────────────────────────────────────────────────────
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Paris
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - npm
+    commit-message:
+      prefix: chore
+      prefix-development: chore
+      include: scope
+    groups:
+      # Regrouper les mises à jour mineures et patch pour éviter le bruit
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+      # Regrouper les écosystèmes liés
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react*"
+      next:
+        patterns:
+          - "next"
+          - "@next/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+      testing:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+          - "@playwright/*"
+          - "playwright"
+    ignore:
+      # Ne pas bumper les majeures automatiquement, à valider manuellement
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
+
+  # ─── GitHub Actions ────────────────────────────────────────────────────────
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Paris
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: ci
+      include: scope
+    groups:
+      actions:
+        patterns:
+          - "*"
+
+  # ─── Docker (optionnel, à activer si Dockerfile présent) ───────────────────
+  # - package-ecosystem: docker
+  #   directory: /
+  #   schedule:
+  #     interval: weekly
+  #     day: monday
+  #     time: "06:00"
+  #     timezone: Europe/Paris
+  #   labels:
+  #     - dependencies
+  #     - docker
+  #   commit-message:
+  #     prefix: chore
+  #     include: scope
+
+  # ─── pip / Python (optionnel, à activer si requirements.txt présent) ───────
+  # - package-ecosystem: pip
+  #   directory: /
+  #   schedule:
+  #     interval: weekly
+  #   labels:
+  #     - dependencies
+  #     - python
