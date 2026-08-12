@@ -12,7 +12,7 @@
 
 Conception et développement de produits numériques sur mesure. Web, mobile, intelligence artificielle. Studio indépendant basé en Zone France Ruralités Revitalisation.
 
-[![Site](https://img.shields.io/badge/axo--lab.fr-0B1D33?style=for-the-badge&logo=googlechrome&logoColor=white)](https://axo-lab.fr)
+[![Site](https://img.shields.io/badge/axo--lab.fr-0B1D33?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.axo-lab.fr)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/company/axo-lab)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/profile.php?id=61588942749469)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/axolab.fr/)
@@ -99,7 +99,7 @@ SIRET 103 310 017 00019 · NAF 6201Z
 Le Point Commun, Place Claude Wormser, 03000 Avermes, France
 
 ✉️ [contact@axo-lab.fr](mailto:contact@axo-lab.fr)
-🌐 [axo-lab.fr](https://axo-lab.fr)
+🌐 [axo-lab.fr](https://www.axo-lab.fr)
 📅 [Prendre rendez-vous](https://cal.com/clement-pandreau)
 
 ---
